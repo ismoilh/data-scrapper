@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Score Test</title>
+    <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link rel='shortcut icon' href='/img/favicon.ico' type="image/x-icon" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu' />
+</head>
+
+<body>
+    <header>
+        <h1><a href='/'>Score Test</a></h1>
+    </header>
+
+    <section>
+        <%if(users.length !=0) {%>
+            <% for (let user of users){%>
+                <div class="snippet">
+                    <div class="metadata">
+                        <strong><a href="mailto:<%=user.email%>">
+                                <%=user.email%>
+                            </a></strong>
+                        <span>
+                            <%=user.id%>
+                        </span>
+                    </div>
+                    <pre><code><%=user.first_name%></code></pre>
+                    <pre><code><%=user.last_name%></code></pre>
+                    <div class="metadata">
+                        <time>Avatar: <a href="<%=user.avatar%>">
+                                <%=user.avatar%>
+                            </a></time>
+                    </div>
+                </div>
+                <% }%>
+                    <% }else {%>
+                        <p>User not found</p>
+                        <% } %>
+    </section>
+    <!-- Invoke the footer template -->
+    <%- include('./footer.ejs')%>
+
+</body>
+
+</html>
